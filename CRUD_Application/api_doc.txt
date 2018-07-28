@@ -1,0 +1,16 @@
+localhost:9002/api/user/save
+
+{
+	"userName":"Sandip Garai",
+	"loginId":"sandip.garai.ta@gmail.com",
+	"loginPass":"123456"
+}
+
+
+{
+    "id": 2,
+    "userName": "Sandip Garai",
+    "loginId": "sandip.garai.ta@gmail.com",
+    "loginPass": "123456",
+    "isActive": 1
+}
