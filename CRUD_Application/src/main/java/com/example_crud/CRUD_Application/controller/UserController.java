@@ -24,7 +24,7 @@ public class UserController {
 		return userDao.saveUser(user);
 	}
 	
-	@GetMapping("/users")
+	@GetMapping("/all")
 	public List<User> getAllUser(){
 		return userDao.getAllUser();
 	}
