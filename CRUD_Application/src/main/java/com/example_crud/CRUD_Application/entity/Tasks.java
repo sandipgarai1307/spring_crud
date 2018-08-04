@@ -1,6 +1,7 @@
 package com.example_crud.CRUD_Application.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ManyToAny;
@@ -38,8 +40,24 @@ public class Tasks {
 	@Column(name="task_details")
 	private String taskDetails;
 	
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<TaskAction> taskAction;
+	
 	
 	Tasks(){}
+	
+
+
+	public List<TaskAction> getTaskAction() {
+		return taskAction;
+	}
+
+
+
+	public void setTaskAction(List<TaskAction> taskAction) {
+		this.taskAction = taskAction;
+	}
+
 
 
 	public long getId() {
