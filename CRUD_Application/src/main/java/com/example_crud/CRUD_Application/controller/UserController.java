@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example_crud.CRUD_Application.dao.TaskDao;
 import com.example_crud.CRUD_Application.dao.UserDao;
+import com.example_crud.CRUD_Application.entity.Tasks;
 import com.example_crud.CRUD_Application.entity.User;
 
 @RestController
@@ -27,5 +29,18 @@ public class UserController {
 	@GetMapping("/all")
 	public List<User> getAllUser(){
 		return userDao.getAllUser();
+	}
+	
+	@Autowired
+	TaskDao taskDao;
+	
+	@PostMapping("/save-task")
+	public Tasks saveTask(@RequestBody Tasks task){
+		return taskDao.saveTask(task);
+	}
+	
+	@GetMapping("/get-tasks")
+	public List<Tasks> getAllTasks(){
+		return taskDao.getAllTask();
 	}
 }

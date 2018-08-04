@@ -1,5 +1,7 @@
 package com.example_crud.CRUD_Application.entity;
 
+import java.util.List;
+
 import javax.annotation.Generated;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -32,10 +35,15 @@ public class User {
 	@Column(name="is_active")
 	private int isActive=1;
 	
+	//ONE TO ONE MAPPING
 	@OneToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="address_fk", referencedColumnName="id")
 	private Address address;
-
+	
+	
+	User(){
+		
+	}
 	
 	//getter and setters
 	public long getId() {
@@ -85,5 +93,4 @@ public class User {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-
 }
