@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example_crud.CRUD_Application.dao.ProjectDao;
 import com.example_crud.CRUD_Application.dao.TaskDao;
 import com.example_crud.CRUD_Application.dao.UserDao;
+import com.example_crud.CRUD_Application.entity.Project;
 import com.example_crud.CRUD_Application.entity.Tasks;
 import com.example_crud.CRUD_Application.entity.User;
 
@@ -31,6 +33,8 @@ public class UserController {
 		return userDao.getAllUser();
 	}
 	
+	
+	// ==================================== TASK SECTION =============================
 	@Autowired
 	TaskDao taskDao;
 	
@@ -43,4 +47,21 @@ public class UserController {
 	public List<Tasks> getAllTasks(){
 		return taskDao.getAllTask();
 	}
+	
+	
+	
+	//==================================== PROJECT SECTION =============================
+	@Autowired
+	ProjectDao projectDao;
+	
+	@PostMapping("/save-project")
+	public Project saveProject(@RequestBody Project project){
+		return projectDao.saveProject(project);
+	}
+	
+	public List<Project> getAllProject(){
+		return projectDao.getAllProject();
+	}
+	
+	
 }

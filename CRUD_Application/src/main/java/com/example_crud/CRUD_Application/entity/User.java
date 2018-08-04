@@ -11,9 +11,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 @Table(name="m_user")
@@ -40,10 +43,12 @@ public class User {
 	@JoinColumn(name="address_fk", referencedColumnName="id")
 	private Address address;
 	
+	//Many to Many Mapping
+	/*@ManyToMany(cascade=CascadeType.DETACH)
+	private List<Project> projectList;*/
 	
-	User(){
-		
-	}
+	
+	User(){}
 	
 	//getter and setters
 	public long getId() {
@@ -93,4 +98,13 @@ public class User {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+	/*public List<Project> getProjectList() {
+		return projectList;
+	}
+
+	public void setProjectList(List<Project> projectList) {
+		this.projectList = projectList;
+	}*/
+	
 }
